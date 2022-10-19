@@ -6,7 +6,7 @@
 /*   By: paugonca <paugonca@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 15:44:09 by paugonca          #+#    #+#             */
-/*   Updated: 2022/10/17 17:56:11 by paugonca         ###   ########.fr       */
+/*   Updated: 2022/10/19 15:27:18 by paugonca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,12 @@ static char	*wdset(const char *s, int start, int end)
 	p = 0;
 	wd = malloc((end - start) + 1 * sizeof(char));
 	while (start < end)
-		wd[p++] = str[start++];
+		wd[p++] = s[start++];
 	wd[p] = '\0';
 	return (wd);
 }
 
-static char	**splitup(char const **final_str, char const *s, char c)
+static char	**splitup(char **final_str, char const *s, char c)
 {
 	size_t	p;
 	size_t	i;
@@ -72,7 +72,7 @@ static char	**splitup(char const **final_str, char const *s, char c)
 
 char	**ft_split(char const *s, char c)
 {
-	char	*final_str;
+	char	**final_str;
 
 	if (!s)
 		return (0);

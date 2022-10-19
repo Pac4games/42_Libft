@@ -6,13 +6,13 @@
 /*   By: paugonca <paugonca@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 17:46:07 by paugonca          #+#    #+#             */
-/*   Updated: 2022/10/19 12:53:33 by paugonca         ###   ########.fr       */
+/*   Updated: 2022/10/19 15:40:41 by paugonca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_striteri(char *s, void (*f)(unsigned int, char))
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
 	int	p;
 
@@ -21,7 +21,7 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char))
 	{
 		while (s[p])
 		{
-			f(i, &s[p]);
+			f(p, &s[p]);
 			p++;
 		}
 	}
