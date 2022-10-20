@@ -6,7 +6,7 @@
 /*   By: paugonca <paugonca@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 23:21:16 by paugonca          #+#    #+#             */
-/*   Updated: 2022/10/18 16:59:44 by paugonca         ###   ########.fr       */
+/*   Updated: 2022/10/20 13:20:07 by paugonca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 char	*convert(size_t p, long num, int aux, char *res)
 {
+	if (num == 0)
+		res[0] = '0';
 	p--;
 	while (num > 0)
 	{
@@ -35,6 +37,8 @@ char	*ft_itoa(int n)
 	p = 0;
 	aux = 0;
 	num = (long)n;
+	if (n == 0)
+		p++;
 	while (n)
 	{
 		n /= 10;
