@@ -6,52 +6,51 @@
 /*   By: paugonca <paugonca@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 23:21:16 by paugonca          #+#    #+#             */
-/*   Updated: 2022/10/20 13:20:07 by paugonca         ###   ########.fr       */
+/*   Updated: 2022/10/20 16:19:45 by paugonca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*convert(size_t p, long num, int aux, char *res)
+int	lendef(int n)
 {
-	if (num == 0)
-		res[0] = '0';
-	p--;
-	while (num > 0)
-	{
-		res[p + aux] = num % 10 + 48;
-		num /= 10;
-		p--;
-	}
-	res[p] = '\0';
-	return (res);
+	if (n > 0)
+		return (0);
+	return (1);
+}
+
+int	signdef(int n)
+{
+	if (n > 0)
+		return (1);
+	return (-1);
 }
 
 char	*ft_itoa(int n)
 {
 	char	*res;
+	size_t	len;
 	long	num;
-	size_t	p;
-	int		aux;
 
-	p = 0;
-	aux = 0;
-	num = (long)n;
-	if (n == 0)
-		p++;
+	len = lendef(n);
+	num = (long)n * signdef(n);
 	while (n)
 	{
 		n /= 10;
-		p++;
+		len++;
 	}
-	res = (char *)malloc(p + 1);
+	res = (char *)malloc(len + 1);
 	if (!res)
 		return (0);
-	if (num < 0)
+	*(res + len--) = '\0';
+	while (num > 0)
 	{
-		res[0] = '-';
-		num *= -1;
-		aux++;
+		*(res + len--) = num % 10 + 48;
+		num /= 10;
 	}
-	return (convert(p, num, aux, res));
+	if (len == 0 && res[1] == '\0')
+		*(res + len) = 48;
+	else if (len == 0 && res[1] != '\0')
+		*(res + len) = '-';
+	return (res);
 }

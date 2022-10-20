@@ -6,7 +6,7 @@
 /*   By: paugonca <paugonca@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 15:44:09 by paugonca          #+#    #+#             */
-/*   Updated: 2022/10/19 15:27:18 by paugonca         ###   ########.fr       */
+/*   Updated: 2022/10/20 15:57:57 by paugonca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static int	wdcount(const char *s, char c)
 	return (p);
 }
 
-static char	*wdset(const char *s, int start, int end)
+static char	*wddup(const char *s, int start, int end)
 {
 	char	*wd;
 	int		p;
@@ -58,15 +58,15 @@ static char	**splitup(char **final_str, char const *s, char c)
 	while (p <= ft_strlen(s))
 	{
 		if (s[p] != c && j < 0)
-			j = -1;
+			j = p;
 		else if ((s[p] == c || p == ft_strlen(s)) && j >= 0)
 		{
-			final_str[i++] = wdset(s, j, p);
+			final_str[i++] = wddup(s, j, p);
 			j = -1;
 		}
 		p++;
 	}
-	final_str[i] = '\0';
+	final_str[i] = 0;
 	return (final_str);
 }
 
@@ -76,7 +76,7 @@ char	**ft_split(char const *s, char c)
 
 	if (!s)
 		return (0);
-	final_str = malloc((wdcount(s, c) + 1) * sizeof(char));
+	final_str = malloc((wdcount(s, c) + 1) * sizeof(char *));
 	if (!final_str)
 		return (0);
 	return (splitup(final_str, s, c));

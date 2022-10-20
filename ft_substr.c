@@ -6,47 +6,33 @@
 /*   By: paugonca <paugonca@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 20:18:40 by paugonca          #+#    #+#             */
-/*   Updated: 2022/10/14 21:24:39 by paugonca         ###   ########.fr       */
+/*   Updated: 2022/10/20 13:47:16 by paugonca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	count(char const *s, unsigned int p)
-{	
-	unsigned int	i;
-
-	i = 0;
-	while (s[p])
-	{
-		i++;
-		p++;
-	}
-	return (i);
-}
-
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char			*res;
-	unsigned int	p;
-	unsigned int	i;
+	char	*res;
+	size_t	p;
+	size_t	strlen;
 
-	p = start;
-	i = count(s, p);
-	if (len <= i - 1)
-		res = (char *)malloc(len + 1 * sizeof(char));
-	else
-		res = (char *)malloc(i * sizeof(char));
+	if (!s)
+		return (0);
+	p = 0;
+	strlen = ft_strlen(s);
+	if (len > strlen)
+		len = strlen + 1;
+	res = (char *)malloc(len + 1);
 	if (!res)
 		return (0);
-	i = 0;
-	while (s[p] && i < len)
+	while (start < strlen && p < len)
 	{
-		res[i] = s[p];
-		i++;
+		res[p] = s[start];
+		start++;
 		p++;
 	}
-	if (!res[i])
-		res[i] = '\0';
+	res[p] = '\0';
 	return (res);
 }
