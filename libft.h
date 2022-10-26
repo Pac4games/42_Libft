@@ -6,7 +6,7 @@
 /*   By: paugonca <paugonca@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 15:24:32 by paugonca          #+#    #+#             */
-/*   Updated: 2022/10/26 10:22:21 by paugonca         ###   ########.fr       */
+/*   Updated: 2022/10/26 12:41:01 by paugonca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,12 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+
+typedef struct s_list
+{
+	void			*content;
+	struct s_list	*next;
+}					t_list;
 
 //Part 1 - Libc functions
 int		ft_atoi(const char *s);
