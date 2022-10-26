@@ -6,7 +6,7 @@
 #    By: paugonca <paugonca@student.42lisboa.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/19 14:56:07 by paugonca          #+#    #+#              #
-#    Updated: 2022/10/25 18:56:13 by paugonca         ###   ########.fr        #
+#    Updated: 2022/10/26 10:24:02 by paugonca         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ ft_strncmp ft_strnstr ft_strrchr ft_strtrim ft_substr ft_tolower ft_toupper
 
 CC = gcc
 RM = rm -f
-CFLAGS = -Wall -Wextra -Werror -I
+CFLAGS = -Wall -Wextra -Werror
 
 all:$(NAME)
 
