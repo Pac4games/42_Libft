@@ -6,7 +6,7 @@
 /*   By: paugonca <paugonca@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 17:59:24 by paugonca          #+#    #+#             */
-/*   Updated: 2022/10/26 18:43:38 by paugonca         ###   ########.fr       */
+/*   Updated: 2022/10/27 12:59:03 by paugonca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	t_list	*hold;
+	t_list	*aux;
 
 	if (!new || !lst)
 		return ;
-	else if (!*lst)
+	if (!*lst)
 	{
 		*lst = new;
 		return ;
 	}
-	hold = ft_lstlast(*lst);
-	hold->next = new;
+	aux = ft_lstlast(*lst);
+	aux->next = new;
 }

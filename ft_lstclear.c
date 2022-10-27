@@ -6,7 +6,7 @@
 /*   By: paugonca <paugonca@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 18:50:29 by paugonca          #+#    #+#             */
-/*   Updated: 2022/10/26 18:53:43 by paugonca         ###   ########.fr       */
+/*   Updated: 2022/10/27 12:36:53 by paugonca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	t_list	hold;
+	t_list	*hold;
 	
 	if (!lst || !*lst)
 		return ;
