@@ -6,7 +6,7 @@
 #    By: paugonca <paugonca@student.42lisboa.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/19 14:56:07 by paugonca          #+#    #+#              #
-#    Updated: 2022/10/27 13:12:06 by paugonca         ###   ########.fr        #
+#    Updated: 2022/10/28 11:54:06 by paugonca         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,4 +35,6 @@ fclean: clean
 		$(RM)	$(NAME)
 re:	fclean $(NAME)
 bonus:	$(SRC:=.o)	$(BONUS:=.o)
-		ar rc $(NAME) $(SRC=.o)	$(BONUS=.o)
+	ar rc $(NAME) $(SRC:=.o)	$(BONUS:=.o)
+
+.PHONY: all clean fclean re bonus
